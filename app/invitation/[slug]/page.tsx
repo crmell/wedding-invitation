@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -13,9 +14,9 @@ export default function InvitationPage() {
   const { slug } = useParams();
   const [guest, setGuest] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [isOpen, setIsOpen] = useState(false); // Controls the Cover View
+  const [isOpen, setIsOpen] = useState(false); // Controls the Cover Overlay View
   
-  // Form States
+  // Form State Configurations
   const [attending, setAttending] = useState<string>("");
   const [whatsapp, setWhatsapp] = useState("");
   const [wishes, setWishes] = useState("");
@@ -104,7 +105,7 @@ export default function InvitationPage() {
             <div className="space-y-4">
               <span className="block text-[10px] tracking-[0.4em] uppercase text-[#A39284]">The Wedding of</span>
               <h1 className="text-5xl sm:text-6xl font-serif tracking-wide text-[#5A4B3E] font-light">
-                Hartanto <span className="text-2xl block font-sans my-2 text-[#A39284] font-light">&</span> Clara
+                Julian <span className="text-2xl block font-sans my-2 text-[#A39284] font-light">&</span> Clara
               </h1>
             </div>
 
@@ -137,34 +138,48 @@ export default function InvitationPage() {
             className="text-center space-y-12 z-10 relative"
           >
             <div className="space-y-1">
+              <span className="block text-[10px] tracking-[0.3em] uppercase text-[#A39284] font-bold">Introducing</span>
               <h2 className="text-3xl font-serif tracking-wider text-[#5A4B3E]">Our Couple</h2>
             </div>
 
             {/* Groom Block */}
             <div className="space-y-4">
-              <h3 className="text-4xl font-serif italic text-[#5A4B3E]">Dr. Hartanto</h3>
+              <h3 className="text-4xl font-serif italic text-[#5A4B3E]">...</h3>
               <div className="text-xs text-[#8C7A6B] space-y-1">
                 <p className="italic font-light">The son of</p>
-                <p className="font-medium text-[#4E4135]">Mr.  & Mrs. Everina</p>
+                <p className="font-medium text-[#4E4135]">Mr. ... & Mrs. ...</p>
               </div>
             </div>
 
-            {/* Photo placeholders side by side */}
+            {/* Optimized Photo Grid */}
             <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
-              <div className="aspect-[3/4] bg-[#E6DFD5] rounded-2xl flex items-center justify-center border border-[#8C7A6B]/20 shadow-inner">
-                <span className="text-[10px] uppercase tracking-wider text-[#A39284]">Photo of Boy</span>
+              {/* Groom Photo */}
+              <div className="aspect-[3/4] overflow-hidden rounded-2xl border border-[#8C7A6B]/20 shadow-md relative bg-[#E6DFD5]">
+                <Image 
+                  src="/groom.jpg" 
+                  alt="Julian"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
-              <div className="aspect-[3/4] bg-[#E6DFD5] rounded-2xl flex items-center justify-center border border-[#8C7A6B]/20 shadow-inner">
-                <span className="text-[10px] uppercase tracking-wider text-[#A39284]">Photo of Girl</span>
+
+              {/* Bride Photo */}
+              <div className="aspect-[3/4] overflow-hidden rounded-2xl border border-[#8C7A6B]/20 shadow-md relative bg-[#E6DFD5]">
+                <Image 
+                  src="/bride.jpg" 
+                  alt="Clara"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
 
             {/* Bride Block */}
             <div className="space-y-4">
-              <h3 className="text-4xl font-serif italic text-[#5A4B3E]">Clara Anastasia, S.Ds.</h3>
+              <h3 className="text-4xl font-serif italic text-[#5A4B3E]">...</h3>
               <div className="text-xs text-[#8C7A6B] space-y-1">
                 <p className="italic font-light">The daughter of</p>
-                <p className="font-medium text-[#4E4135]">Mr. Hendra Wijaya & Mrs. Ratna Wijaya</p>
+                <p className="font-medium text-[#4E4135]">Mr. ... & Mrs. ...</p>
               </div>
             </div>
           </motion.section>
@@ -181,10 +196,10 @@ export default function InvitationPage() {
             
             {/* Split Traditional Grid Calendar style */}
             <div className="flex items-center justify-center gap-6 text-[#5A4B3E] font-serif border-y border-[#E6DFD5] py-4 max-w-xs mx-auto">
-              <span className="text-sm uppercase tracking-wider">Saturday</span>
-              <span className="text-4xl border-x border-[#E6DFD5] px-6 font-light">28</span>
+              <span className="text-sm uppercase tracking-wider">Sunday</span>
+              <span className="text-4xl border-x border-[#E6DFD5] px-6 font-light">20</span>
               <div className="text-left leading-none">
-                <p className="text-xs uppercase tracking-wider">August</p>
+                <p className="text-xs uppercase tracking-wider">December</p>
                 <p className="text-xs tracking-widest text-[#A39284]">2026</p>
               </div>
             </div>
@@ -196,12 +211,12 @@ export default function InvitationPage() {
 
             <div className="space-y-2">
               <p className="text-[11px] tracking-widest text-[#A39284] uppercase">Venue Location</p>
-              <p className="text-xl font-serif text-[#4E4135] leading-tight">Grand Hall, Lt. 9<br />Hotel Jakarta</p>
-              <p className="text-xs text-[#8C7A6B] max-w-xs mx-auto font-light leading-relaxed">Jl. Jend. Sudirman No. Kav 21, Karet Tengsin, Tanah Abang, Jakarta Pusat</p>
+              <p className="text-xl font-serif text-[#4E4135] leading-tight">Sheraton Ballrom <br />Grand Jakarta Gandaria City Hotel</p>
+              <p className="text-xs text-[#8C7A6B] max-w-xs mx-auto font-light leading-relaxed">Jalan Sultan Iskandar Muda, Kebayoran Lama Utara, Kebayoran Lama, South Jakarta, Jakarta 12240, Indonesia</p>
             </div>
 
             <button 
-              onClick={() => window.open("https://maps.google.com", "_blank")}
+              onClick={() => window.open("https://www.google.com/travel/search?ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGAkSBwjqDxAHGAoYATICEAAqEAoOOgNKUFlCBwguEgOHAQw&qs=CAEyFENnc0loc2ZrMWJ6TTMtSGFBUkFCOAtCCRGtZWRdhm_tw0IJEeZ06JWuYZ1bQgkRnSWbaJIWtf5aYzJhqgFeCg0vZy8xMWJjNjdzZ2tfCgkvbS8wNHNtOGcQATIeEAEiGoWYcUd4yiDsmhw9X8Vf1mEXsq8m42R5p9GUMiAQAiIcc2hlcmF0b24gZ3JhbmQgZ2FuZGFyaWEgY2l0eQ&utm_campaign=sharing&utm_medium=link_btn&utm_source=htls", "_blank")}
               className="px-6 py-2.5 bg-[#5A4B3E] text-white text-[11px] tracking-widest uppercase rounded-xl hover:bg-[#43372D] transition-all inline-flex items-center gap-2 shadow-md shadow-[#5A4B3E]/10"
             >
               Link Google Maps
@@ -222,7 +237,7 @@ export default function InvitationPage() {
 
             {submitted ? (
               <div className="bg-[#EAF4EC] text-[#2C5E3B] p-6 rounded-xl text-center border border-[#D2E7D6]">
-                <p className="font-serif italic text-lg mb-1">Terma Kasih!</p>
+                <p className="font-serif italic text-lg mb-1">Thank You!</p>
                 <p className="text-xs tracking-wide text-[#3D774D]">Your RSVP and prayer wishes have been posted to our dashboard.</p>
               </div>
             ) : (
@@ -238,11 +253,11 @@ export default function InvitationPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-[11px] tracking-wider font-semibold uppercase text-[#8C7A6B]">Attendance Confirmation</label>
+                  <label className="block text-[11px] tracking-wider font-semibold uppercase text-[#8C7A6B]">Attendance</label>
                   <select value={attending} onChange={(e) => setAttending(e.target.value)} required className="w-full px-4 py-3 bg-white border border-[#D4C3B3] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#5A4B3E]/20 focus:border-[#5A4B3E] transition-all appearance-none cursor-pointer">
                     <option value="" disabled>Select attendance option</option>
-                    <option value="true">Joyfully Attend</option>
-                    <option value="false">Regretfully Decline</option>
+                    <option value="true">Attending</option>
+                    <option value="false">Not Attending</option>
                   </select>
                 </div>
 
@@ -258,7 +273,7 @@ export default function InvitationPage() {
             )}
 
             {/* THE WEDDING GUESTBOOK CHATBOX FEED */}
-            <div className="border-t border-[#E6DFD5] pt-6 space-y-4">
+            {/* <div className="border-t border-[#E6DFD5] pt-6 space-y-4">
               <h3 className="text-xs tracking-[0.2em] text-[#8C7A6B] uppercase font-bold">Wishes Guestbook ({allWishes.length})</h3>
               
               <div className="max-h-60 overflow-y-auto space-y-3 pr-2 scrollbar-thin scrollbar-thumb-[#D4C3B3]">
@@ -274,7 +289,7 @@ export default function InvitationPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </motion.section>
         </motion.div>
       )}
