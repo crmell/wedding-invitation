@@ -105,7 +105,7 @@ export default function InvitationPage() {
             <div className="space-y-4">
               <span className="block text-[10px] tracking-[0.4em] uppercase text-[#A39284]">The Wedding of</span>
               <h1 className="text-5xl sm:text-6xl font-serif tracking-wide text-[#5A4B3E] font-light">
-                Julian <span className="text-2xl block font-sans my-2 text-[#A39284] font-light">&</span> Clara
+                ... <span className="text-2xl block font-sans my-2 text-[#A39284] font-light">&</span> ...
               </h1>
             </div>
 
