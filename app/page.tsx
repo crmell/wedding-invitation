@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { notFound } from 'next/navigation';
-import RSVPForm from '@/components/RSVPForm'; // We'll create this component below
+import RSVPForm from '@/components/rsvp'; // We'll create this component below
 
 // Initialize Supabase Server client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';

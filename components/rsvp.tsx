@@ -7,6 +7,7 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+
 export default function RSVPForm({ guest }: { guest: any }) {
   const [isAttending, setIsAttending] = useState<boolean | null>(guest.is_attending);
   const [whatsapp, setWhatsapp] = useState(guest.whatsapp_number || '');
