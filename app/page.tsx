@@ -7,8 +7,8 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export default async function InvitationPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function InvitationPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
 
   // Fetch guest data securely from Supabase based on the URL slug
   const { data: guest, error } = await supabase
