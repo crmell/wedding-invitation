@@ -273,7 +273,7 @@ export default function InvitationPage() {
             )}
 
             {/* THE WEDDING GUESTBOOK CHATBOX FEED */}
-            {/* <div className="border-t border-[#E6DFD5] pt-6 space-y-4">
+            <div className="border-t border-[#E6DFD5] pt-6 space-y-4">
               <h3 className="text-xs tracking-[0.2em] text-[#8C7A6B] uppercase font-bold">Wishes Guestbook ({allWishes.length})</h3>
               
               <div className="max-h-60 overflow-y-auto space-y-3 pr-2 scrollbar-thin scrollbar-thumb-[#D4C3B3]">
@@ -289,7 +289,7 @@ export default function InvitationPage() {
                   </div>
                 ))}
               </div>
-            </div> */}
+            </div>
           </motion.section>
         </motion.div>
       )}
