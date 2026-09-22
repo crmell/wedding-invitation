@@ -1,85 +1,84 @@
-import { createClient } from '@supabase/supabase-js';
-import { notFound } from 'next/navigation';
-import RSVPForm from '@/components/rsvp';
+'use client';
 
-// Initialize Supabase Server client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-export default async function InvitationPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+const previewNames = {
+  first: 'Ari',
+  second: 'Luna',
+};
 
-  // Fetch guest data securely from Supabase based on the URL slug
-  const { data: guest, error } = await supabase
-    .from('guests')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+export default function HomePage() {
+  const router = useRouter();
+  const [slug, setSlug] = useState('inivtes-and-inviteetwo');
+  const [isOpening, setIsOpening] = useState(false);
 
-  if (error || !guest) {
-    notFound();
-  }
+  const handleOpenInvitation = () => {
+    const safeSlug = slug.trim().replace(/^\/+|\/+$/g, '') || 'inivtes-and-inviteetwo';
+    setIsOpening(true);
+    window.setTimeout(() => {
+      router.push(`/${safeSlug}`);
+    }, 400);
+  };
 
   return (
-    <main className="relative min-h-screen bg-[#FDFBF7] text-[#2C2C2C] flex flex-col items-center justify-between p-6 overflow-hidden">
-      
-      {/* 🖼️ CANVA IMAGE ASSET PLACEHOLDER 1: Top Floral/Border Decoration */}
-      <div className="absolute top-0 left-0 w-full pointer-events-none opacity-90 animate-fade-in">
-        {/* TODO: Replace src with your exported Canva graphic */}
-        <img 
-          src="/images/canva-top-floral.png" 
-          alt="Top Floral Decoration" 
-          className="w-full max-h-48 object-cover"
-        />
-      </div>
+    <main className="relative min-h-screen overflow-hidden bg-[#f7f1eb] text-[#2d2522]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_40%),radial-gradient(circle_at_bottom,_rgba(129,88,67,0.12),_transparent_38%)]" />
 
-      {/* Main Invitation Card Content */}
-      <div className="z-10 max-w-md w-full bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-8 my-auto text-center border border-[#EFECE6] transition-all duration-700 transform translate-y-0 animate-slide-up">
-        
-        {/* 🖼️ CANVA IMAGE ASSET PLACEHOLDER 2: Couple or Invitation Badge/Logo */}
-        <div className="mx-auto w-24 h-24 mb-4 relative rounded-full overflow-hidden border-2 border-[#D4AF37] shadow-sm">
-          {/* TODO: Replace src with your exported Canva monogram or circular photo */}
-          <img 
-            src="/images/canva-monogram.png" 
-            alt="Monogram" 
-            className="w-full h-full object-cover animate-pulse duration-3000"
-          />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="relative z-10 mx-auto flex min-h-screen w-full max-w-md items-center px-4 py-8"
+      >
+        <div className="w-full rounded-[2rem] border border-[#eadcc9] bg-white/75 p-5 shadow-[0_30px_80px_rgba(63,46,33,0.12)] backdrop-blur-md">
+          <div className="flex items-center justify-center">
+            <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#d3b16c] bg-[#fffdf9] text-base font-semibold tracking-[0.18em] text-[#362f2a]">
+              A & L
+            </div>
+          </div>
+
+          <div className="mt-5 text-center">
+            <p className="text-[10px] uppercase tracking-[0.34em] text-[#8a7b6d]">Wedding Invitation</p>
+            <h1 className="mt-3 text-3xl font-semibold leading-tight text-[#2f2a27]">
+              Dear {previewNames.first} & {previewNames.second},
+            </h1>
+            <p className="mt-3 text-base italic text-[#6d5d4d]">you are invited to celebrate our love.</p>
+          </div>
+
+          <div className="mt-5 rounded-[1.5rem] border border-[#efe3d3] bg-[linear-gradient(160deg,_#fffaf5_0%,_#f3eadf_50%,_#f4e8d8_100%)] p-4 text-center">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[#8a7b6d]">Together with their families</p>
+            <h2 className="mt-4 font-serif text-4xl text-[#2d2522]">Ari <span className="text-[#af7a5f]">&</span> Luna</h2>
+            <div className="mx-auto my-4 h-px w-16 bg-[#d5b888]" />
+            <p className="text-xs uppercase tracking-[0.22em] text-[#695d54]">Saturday, 15 Oct 2026</p>
+            <p className="mt-2 text-sm text-[#554d49]">The Grand Ballroom, Jakarta</p>
+          </div>
+
+          <div className="mt-5 space-y-3">
+            <label className="block text-[10px] uppercase tracking-[0.24em] text-[#7d6a5b]">
+              Invitation slug
+            </label>
+            <input
+              value={slug}
+              onChange={(e) => setSlug(e.target.value)}
+              className="w-full rounded-full border border-[#e3d3c1] bg-[#fffdfb] px-4 py-3 text-sm text-[#2d2522] outline-none ring-0 placeholder:text-[#b8a894] focus:border-[#cfb06d]"
+              placeholder="inivtes-and-inviteetwo"
+            />
+          </div>
+
+          <motion.button
+            type="button"
+            whileTap={{ scale: 0.98 }}
+            onClick={handleOpenInvitation}
+            className={`mt-5 w-full rounded-full bg-[#312b28] px-5 py-3 text-sm font-medium uppercase tracking-[0.18em] text-white shadow-lg shadow-[#312b28]/20 transition-all ${
+              isOpening ? 'opacity-80' : 'hover:bg-[#201d1b]'
+            }`}
+          >
+            {isOpening ? 'Opening...' : 'Open Invitation'}
+          </motion.button>
         </div>
-
-        <p className="text-xs uppercase tracking-widest text-[#8C8275] mb-2">The Wedding Of</p>
-        <h1 className="text-3xl md:text-4xl font-serif text-[#3A3532] mb-4">
-          {guest.display_name}
-        </h1>
-
-        <div className="border-t border-b border-[#EFECE6] py-4 my-4 space-y-1">
-          <p className="text-sm font-medium text-[#59524C]">Saturday, October 15, 2026</p>
-          <p className="text-xs text-[#8C8275]">The Grand Ballroom, Jakarta</p>
-        </div>
-
-        {/* Personalized Greeting */}
-        <div className="mb-6">
-          <p className="text-xs text-[#8C8275] italic">Special Invitation Dedicated To:</p>
-          <p className="text-base font-semibold text-[#4A433D]">{guest.display_name}</p>
-        </div>
-
-        {/* RSVP Interactive Component */}
-        <RSVPForm guest={guest} />
-      </div>
-
-      {/* 🖼️ CANVA IMAGE ASSET PLACEHOLDER 3: Bottom Floral/Border Decoration */}
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none opacity-90">
-        {/* TODO: Replace src with your exported Canva bottom footer border */}
-        <img 
-          src="/images/canva-bottom-floral.png" 
-          alt="Bottom Floral Decoration" 
-          className="w-full max-h-40 object-cover"
-        />
-      </div>
-
-      <footer className="z-10 text-[10px] text-[#A69E93] mt-4">
-        Created with Next.js & Canva Assets
-      </footer>
+      </motion.div>
     </main>
   );
 }
