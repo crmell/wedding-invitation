@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import RSVPForm from '@/components/rsvp';
 import { AnimatedWeddingCard } from '@/components/animated-wedding-card';
 import { WeddingAudio } from '@/components/wedding-audio';
+import { DirectionsButton } from '@/components/directions-button';
 
 const previewGuest = {
   id: 'preview',
@@ -47,22 +48,6 @@ export default async function RsvpPage({
   if (!guest) {
     notFound();
   }
-
-  const directionsLinks = [
-    {
-      label: 'Google Maps',
-      href:
-        'https://www.google.com/maps/dir/?api=1&destination=Sheraton+Grand+Jakarta+Gandaria+City+Hotel&travelmode=driving',
-    },
-    {
-      label: 'Waze',
-      href: 'https://www.waze.com/ul?q=Sheraton%20Grand%20Jakarta%20Gandaria%20City%20Hotel&navigate=yes',
-    },
-    {
-      label: 'Apple Maps',
-      href: 'https://maps.apple.com/?daddr=Sheraton+Grand+Jakarta+Gandaria+City+Hotel&dirflg=d',
-    },
-  ];
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#f7f1eb] text-[#2d2522]">
@@ -152,19 +137,7 @@ export default async function RsvpPage({
             <div className="mt-3 text-center text-sm text-[#534b45]">
               <p className="font-semibold text-[#312b28]">Sheraton Grand Jakarta, Gandaria City</p>
               <p>Jl. Sultan Iskandar Muda No. 7, Jakarta Selatan</p>
-              <div className="mt-3 flex flex-col gap-2">
-                {directionsLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-[#312b28] px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-white"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
+              <DirectionsButton />
             </div>
           </div>
 
