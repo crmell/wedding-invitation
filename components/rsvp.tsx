@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { WeddingCountdown } from '@/components/wedding-countdown';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
@@ -39,8 +40,12 @@ export default function RSVPForm({ guest }: { guest: any }) {
 
   if (submitted) {
     return (
-      <div className="bg-[#F4F1EA] p-4 rounded-xl text-center animate-fade-in">
-        <p className="text-sm font-medium text-[#4A433D]">✨ Thank you! Your response has been saved.</p>
+      <div className="space-y-4">
+        <div className="rounded-[1.25rem] border border-[#eadcc9] bg-[#f9f3ee] p-4 text-center">
+          <p className="text-base font-semibold text-[#312b28]">Thank you for your response</p>
+          <p className="mt-2 text-sm text-[#544c46]">Your RSVP has been recorded successfully. We can’t wait to celebrate with you.</p>
+        </div>
+        <WeddingCountdown />
       </div>
     );
   }
@@ -81,7 +86,7 @@ export default function RSVPForm({ guest }: { guest: any }) {
           type="text"
           value={whatsapp}
           onChange={(e) => setWhatsapp(e.target.value)}
-          // placeholder="+628123456789"
+          placeholder="+628123456789"
           className="w-full px-3 py-2 text-xs border border-[#EFECE6] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D4AF37]"
         />
       </div>

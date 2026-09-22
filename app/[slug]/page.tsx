@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
 import { notFound } from 'next/navigation';
 import { AnimatedWeddingCard } from '@/components/animated-wedding-card';
+import { WeddingAudio } from '@/components/wedding-audio';
 
 const previewGuest = {
   id: 'preview',
@@ -58,9 +59,11 @@ export default async function InvitationSlugPage({
 
           <div className="relative">
             <div className="mb-5 flex justify-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#d3b16c] bg-[#fffdf9] text-lg font-semibold tracking-[0.18em] text-[#362f2a] shadow-sm">
-                H & E
-              </div>
+              <img
+                src="/logo-he.svg"
+                alt="Hartano & Ernest monogram"
+                className="h-20 w-20 rounded-full border border-[#d3b16c] bg-[#fffdf9] object-cover shadow-sm"
+              />
             </div>
 
             <p className="text-center text-[10px] uppercase tracking-[0.38em] text-[#8a7b6d]">with joy in our hearts</p>
@@ -102,11 +105,11 @@ export default async function InvitationSlugPage({
               >
                 RSVP Now
               </Link>
-              {/* <p className="text-center text-[10px] uppercase tracking-[0.28em] text-[#8a7b6d]">We hope to celebrate with you</p> */}
             </div>
           </div>
         </div>
       </AnimatedWeddingCard>
+      <WeddingAudio />
     </main>
   );
 }
