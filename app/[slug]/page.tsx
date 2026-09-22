@@ -59,22 +59,22 @@ export default async function InvitationSlugPage({
           <div className="relative">
             <div className="mb-5 flex justify-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#d3b16c] bg-[#fffdf9] text-lg font-semibold tracking-[0.18em] text-[#362f2a] shadow-sm">
-                A & L
+                H & E
               </div>
             </div>
 
             <p className="text-center text-[10px] uppercase tracking-[0.38em] text-[#8a7b6d]">with joy in our hearts</p>
-            <h1 className="mt-4 text-center font-serif text-4xl leading-tight text-[#2f2a27]">{guest.display_name}</h1>
+            <h1 className="mt-4 text-center font-serif text-4xl leading-tight text-[#2f2a27]">Hartano & Ernest</h1>
 
             <div className="my-5 border-y border-[#efe3d3] py-4 text-center">
-              <p className="text-sm font-medium text-[#4c413c]">Saturday, October 15, 2026</p>
-              <p className="mt-1 text-[10px] uppercase tracking-[0.24em] text-[#8a7b6d]">The Grand Ballroom, Jakarta</p>
+              <p className="text-lg font-bold tracking-[0.08em] text-[#4c413c]">Saturday, December 20, 2026</p>
+              <p className="mt-1 text-[10px] uppercase tracking-[0.24em] text-[#8a7b6d]">Sheraton Grand Jakarta<br></br>Gandaria City Hotel, Jakarta</p>
             </div>
 
             <div className="mb-6 text-center">
               <p className="text-[10px] uppercase tracking-[0.32em] text-[#8a7b6d]">A special invitation</p>
               <p className="mt-3 text-sm leading-6 text-[#544c46]">
-                Dear beloved family and friends, you are invited to celebrate our love, laughter, and a lifetime of beautiful memories together.
+                {/* Dear beloved family and friends, you are invited to celebrate our love, laughter, and a lifetime of beautiful memories together. */}
               </p>
             </div>
 
@@ -82,15 +82,15 @@ export default async function InvitationSlugPage({
               <div className="grid grid-cols-3 gap-2 text-center">
                 <div>
                   <p className="text-[9px] uppercase tracking-[0.24em] text-[#9b8a79]">Date</p>
-                  <p className="mt-2 text-xs font-medium text-[#3e3734]">15 Oct</p>
+                  <p className="mt-2 text-xs font-medium text-[#3e3734]">Dec 20</p>
                 </div>
                 <div>
                   <p className="text-[9px] uppercase tracking-[0.24em] text-[#9b8a79]">Time</p>
-                  <p className="mt-2 text-xs font-medium text-[#3e3734]">4 PM</p>
+                  <p className="mt-2 text-xs font-medium text-[#3e3734]">7 PM</p>
                 </div>
                 <div>
                   <p className="text-[9px] uppercase tracking-[0.24em] text-[#9b8a79]">Venue</p>
-                  <p className="mt-2 text-xs font-medium text-[#3e3734]">Ballroom</p>
+                  <p className="mt-2 text-xs font-medium text-[#3e3734]">Sheraton Ballroom</p>
                 </div>
               </div>
             </div>
@@ -102,7 +102,7 @@ export default async function InvitationSlugPage({
               >
                 RSVP Now
               </Link>
-              <p className="text-center text-[10px] uppercase tracking-[0.28em] text-[#8a7b6d]">We hope to celebrate with you</p>
+              {/* <p className="text-center text-[10px] uppercase tracking-[0.28em] text-[#8a7b6d]">We hope to celebrate with you</p> */}
             </div>
           </div>
         </div>

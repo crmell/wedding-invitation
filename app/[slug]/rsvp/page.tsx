@@ -55,16 +55,17 @@ export default async function RsvpPage({
         <div className="w-full overflow-hidden rounded-[2rem] border border-[#eadcc9] bg-white/80 p-5 shadow-[0_30px_80px_rgba(63,46,33,0.12)] backdrop-blur-md">
           <div className="mb-5 flex justify-center">
             <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#d3b16c] bg-[#fffdf9] text-lg font-semibold tracking-[0.18em] text-[#362f2a]">
-              A & L
+              H & E
             </div>
           </div>
 
-          <p className="text-center text-[10px] uppercase tracking-[0.38em] text-[#8a7b6d]">RSVP</p>
+          <p className="text-center text-[10px] uppercase tracking-[0.38em] text-[#8a7b6d]">Dear,</p>
           <h1 className="mt-4 text-center font-serif text-4xl leading-tight text-[#2f2a27]">{guest.display_name}</h1>
+          <p className="mt-2 text-center text-[10px] tracking-[0.38em] text-[#8a7b6d]">we invite you to celebrate with us</p>
 
           <div className="my-5 border-y border-[#efe3d3] py-4 text-center">
-            <p className="text-sm font-medium text-[#4c413c]">Saturday, October 15, 2026</p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.24em] text-[#8a7b6d]">The Grand Ballroom, Jakarta</p>
+            <p className="text-sm uppercase font-medium text-[#4c413c]">Saturday, December 20, 2026</p>
+            <p className="mt-1 text-[10px] tracking-[0.24em] text-[#8a7b6d]">Sheraton Grand Jakarta<br></br>Gandaria City Hotel, Jakarta</p>
           </div>
 
           <div className="rounded-[1.25rem] border border-[#efe3d3] bg-[#fffaf5] p-3 text-center text-[10px] uppercase tracking-[0.22em] text-[#8a7b6d]">

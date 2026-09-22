@@ -81,7 +81,7 @@ export default function RSVPForm({ guest }: { guest: any }) {
           type="text"
           value={whatsapp}
           onChange={(e) => setWhatsapp(e.target.value)}
-          placeholder="+628123456789"
+          // placeholder="+628123456789"
           className="w-full px-3 py-2 text-xs border border-[#EFECE6] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D4AF37]"
         />
       </div>

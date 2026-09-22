@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const previewNames = {
-  first: 'Ari',
-  second: 'Luna',
+  first: 'Joe',
+  second: 'Jane',
 };
 
 export default function HomePage() {
@@ -35,7 +35,7 @@ export default function HomePage() {
         <div className="w-full rounded-[2rem] border border-[#eadcc9] bg-white/75 p-5 shadow-[0_30px_80px_rgba(63,46,33,0.12)] backdrop-blur-md">
           <div className="flex items-center justify-center">
             <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#d3b16c] bg-[#fffdf9] text-base font-semibold tracking-[0.18em] text-[#362f2a]">
-              A & L
+              H & E
             </div>
           </div>
 
@@ -51,8 +51,8 @@ export default function HomePage() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-[#8a7b6d]">Together with their families</p>
             <h2 className="mt-4 font-serif text-4xl text-[#2d2522]">Ari <span className="text-[#af7a5f]">&</span> Luna</h2>
             <div className="mx-auto my-4 h-px w-16 bg-[#d5b888]" />
-            <p className="text-xs uppercase tracking-[0.22em] text-[#695d54]">Saturday, 15 Oct 2026</p>
-            <p className="mt-2 text-sm text-[#554d49]">The Grand Ballroom, Jakarta</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-[#695d54]">Saturday, 20 Dec 2026</p>
+            <p className="mt-2 text-sm text-[#554d49]">Sheraton Grand Jakarta - Gandaria City Hotel, Jakarta</p>
           </div>
 
           <div className="mt-5 space-y-3">

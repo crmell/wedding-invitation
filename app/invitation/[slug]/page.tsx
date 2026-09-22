@@ -50,7 +50,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ slu
         <div className="w-full overflow-hidden rounded-[2rem] border border-[#eadcc9] bg-white/80 p-5 shadow-[0_30px_80px_rgba(63,46,33,0.12)] backdrop-blur-md">
           <div className="mb-5 flex justify-center">
             <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#d3b16c] bg-[#fffdf9] text-lg font-semibold tracking-[0.18em] text-[#362f2a]">
-              A & L
+              H & E
             </div>
           </div>
 
