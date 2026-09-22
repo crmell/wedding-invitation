@@ -48,6 +48,22 @@ export default async function RsvpPage({
     notFound();
   }
 
+  const directionsLinks = [
+    {
+      label: 'Google Maps',
+      href:
+        'https://www.google.com/maps/dir/?api=1&destination=Sheraton+Grand+Jakarta+Gandaria+City+Hotel&travelmode=driving',
+    },
+    {
+      label: 'Waze',
+      href: 'https://www.waze.com/ul?q=Sheraton%20Grand%20Jakarta%20Gandaria%20City%20Hotel&navigate=yes',
+    },
+    {
+      label: 'Apple Maps',
+      href: 'https://maps.apple.com/?daddr=Sheraton+Grand+Jakarta+Gandaria+City+Hotel&dirflg=d',
+    },
+  ];
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#f7f1eb] text-[#2d2522]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),radial-gradient(circle_at_bottom,_rgba(127,90,76,0.12),_transparent_40%)]" />
@@ -136,14 +152,19 @@ export default async function RsvpPage({
             <div className="mt-3 text-center text-sm text-[#534b45]">
               <p className="font-semibold text-[#312b28]">Sheraton Grand Jakarta, Gandaria City</p>
               <p>Jl. Sultan Iskandar Muda No. 7, Jakarta Selatan</p>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Sheraton+Grand+Jakarta+Gandaria+City+Hotel"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-block rounded-full bg-[#312b28] px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-white"
-              >
-                Open at Google Maps
-              </a>
+              <div className="mt-3 flex flex-col gap-2">
+                {directionsLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-[#312b28] px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-white"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
