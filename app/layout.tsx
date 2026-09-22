@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ari & Luna | Wedding Invitation",
-  description: "An elegant digital wedding invitation preview and RSVP experience.",
+  title: "Hartanto & Ernest | Wedding Invitation",
+  description: "An invitation to celebrate our love.",
 };
 
 export default function RootLayout({
